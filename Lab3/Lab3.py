@@ -1,3 +1,31 @@
+
+# Import necessary libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+# Read CSV file into a DataFrame, display the columns of the DataFrame and create a list with two values.
+ud = pd.read_csv("unlabelled_data.csv")
+ud.columns
+header_ud = [-1.885907518189583, -1.997407599218205]
+
+# Rename the columns in the DataFrame, replacing specific strings with 'x' and 'y'
+ud.columns = ud.columns.str.replace("-1.885907518189583", "x"). str.replace("-1.997407599218205", "y")
+
+# Convert the 'x' and 'y' columns of the DataFrame to lists
+x = list(ud["x"])
+y = list(ud["y"])
+
+# Append the values from header_ud to the respective lists
+x.append(header_ud[0])
+y.append(header_ud[1])
+
+# Convert the lists back to DataFrames
+ud_1 = pd.DataFrame(x, columns = ["x"])
+ud_2 =  pd.DataFrame(y, columns = ["y"])
+ud_1["y"] = ud_2
+ud_1
+
 ud_1["new_label"] = ud_1["x"]       # Assign the values of the "x" column to the new "label" column
          
 for x in range(len(ud_1)):      # Loop through each row of the DataFrame

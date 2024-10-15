@@ -9,25 +9,28 @@ ud = pd.read_csv("unlabelled_data.csv")
 ud.columns
 header_ud = [-1.885907518189583, -1.997407599218205]
 
-# Rename the columns in the DataFrame, replacing specific strings with 'x' and 'y'.
+# Rename the columns in the DataFrame, replacing specific strings with 'x' and 'y'
 ud.columns = ud.columns.str.replace("-1.885907518189583", "x"). str.replace("-1.997407599218205", "y")
 
-# Convert the 'x' and 'y' columns of the DataFrame to lists.
+# Convert the 'x' and 'y' columns of the DataFrame to lists
 x = list(ud["x"])
 y = list(ud["y"])
 
-# Append the values from header_ud to the respective lists.
+# Append the values from header_ud to the respective lists
 x.append(header_ud[0])
 y.append(header_ud[1])
 
-# Convert the lists back to DataFrames.
+# Convert the lists back to DataFrames
 ud_1 = pd.DataFrame(x, columns = ["x"])
 ud_2 =  pd.DataFrame(y, columns = ["y"])
 ud_1["y"] = ud_2
 
-# Set range for x and y - axis.
+
+
+# Set range for x and y - axis
 x_range = [-6, 6]
 y_range = [0, 0]
+
 
 
 ud_1["new_label"] = ud_1["x"]       # Assign the values of the "x" column to the new "label" column
@@ -45,6 +48,8 @@ label1 = ud_1[ud_1["new_label"] == 1]
 plt.scatter(x = label0["x"], y = label0 ["y"], color = "green")         # Plot the data where the label is 0 (green) and the label is 1 (orange)
 plt.scatter(x = label1["x"], y = label1 ["y"], color = "orange")
 plt.plot(x_range, y_range)      # Plot a line based on x_range and y_range (these should be defined elsewhere in the code)
-plt.show()
+plt.show
+
+
 
 #ud_1.to_csv("labelled_data.csv", index=False)       # Save the updated DataFrame to a new CSV file without the index column

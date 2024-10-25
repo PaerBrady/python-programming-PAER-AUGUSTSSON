@@ -1,8 +1,5 @@
-
-# Import necessary libraries
 import pandas as pd
 import matplotlib.pyplot as plt
-
 
 # Read CSV file into a DataFrame, display the columns of the DataFrame and create a list with two values.
 ud = pd.read_csv("unlabelled_data.csv")

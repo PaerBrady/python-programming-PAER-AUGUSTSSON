@@ -1,20 +1,15 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ud = pd.read_csv("unlabelled_data.csv")     # Read CSV file into a DataFrame, display the columns of the DataFrame and create a list with two values.
-header_ud = [-1.885907518189583, -1.997407599218205]
-
-ud.columns = ud.columns.str.replace("-1.885907518189583", "x"). str.replace("-1.997407599218205", "y")      # Rename the columns in the DataFrame, replacing specific strings with 'x' and 'y'.
+ud = pd.read_csv("unlabelled_data.csv", names=["x", "y"]) 
 
 x = list(ud["x"])       # Convert the 'x' and 'y' columns of the DataFrame to lists.
 y = list(ud["y"])
 
-x.append(header_ud[0])      # Append the values from header_ud to the respective lists.
-y.append(header_ud[1])
-
 ud_1 = pd.DataFrame(x, columns = ["x"])     # Convert the lists back to DataFrames.
 ud_2 =  pd.DataFrame(y, columns = ["y"])
 ud_1["y"] = ud_2
+ud_1
 
 x_range = [-6, 6]       # Set range for x and y - axis.
 y_range = [0, 0]

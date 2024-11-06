@@ -21,13 +21,12 @@ y.append(header_ud[1])
 ud_1 = pd.DataFrame(x, columns = ["x"])
 ud_2 =  pd.DataFrame(y, columns = ["y"])
 ud_1["y"] = ud_2
-
+print(ud_1)
 
 
 # Set range for x and y - axis
 x_range = [-6, 6]
 y_range = [0, 0]
-
 
 
 ud_1["new_label"] = ud_1["x"]       # Assign the values of the "x" column to the new "label" column

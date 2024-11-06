@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-ud = pd.read_csv("unlabelled_data.csv", names=["x", "y"]) 
+ud = pd.read_csv("unlabelled_data.csv", names=["x", "y"])       # Create df with pandas as two columns and name these as "x" and "y".
 
 x = list(ud["x"])       # Convert the 'x' and 'y' columns of the DataFrame to lists.
 y = list(ud["y"])
